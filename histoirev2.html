@@ -1,0 +1,336 @@
+// ...existing code...
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Histoire de la marque — Out of Bounds</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS rétabli pour le rendu original (fond clair + motif, accents violets) -->
+    <style>
+        :root {
+            --bg: #fbf9f8;
+            --ink: #313633;
+            --accent: #d85fbf;
+            --muted: rgba(49, 54, 51, 0.06);
+            --container: 1100px;
+        }
+
+        body {
+            font-family: "Poppins", system-ui, Arial, sans-serif;
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            /* motif très pâle en fond */
+            background-image:
+                linear-gradient(180deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 60%),
+                repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.02) 0 1px, transparent 1px 120px);
+        }
+
+        .wrap {
+            max-width: var(--container);
+            margin: 48px auto;
+            padding: 48px 36px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.85));
+            border-radius: 18px;
+            box-shadow: 0 12px 40px rgba(16, 12, 20, 0.08);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 40px;
+            letter-spacing: 1px;
+            color: var(--ink);
+        }
+
+        header p {
+            margin: 8px 0 0;
+            color: var(--ink);
+            opacity: 0.7;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 26px;
+            color: var(--ink);
+            margin: 40px 0 20px;
+            font-weight: 700;
+        }
+
+        .grid {
+            display: grid;
+            gap: 22px;
+            grid-template-columns: repeat(3, 1fr);
+            align-items: start;
+        }
+
+        .grid--wide {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .card {
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+            box-shadow: 0 10px 30px rgba(19, 19, 19, 0.06);
+            border: 8px solid rgba(49, 54, 51, 0.02);
+            background: linear-gradient(180deg, var(--muted), transparent);
+        }
+
+        .caption {
+            margin-top: 12px;
+            font-size: 14px;
+            color: var(--ink);
+            opacity: 0.85;
+        }
+
+        .hero {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 10px 0 30px;
+        }
+
+        .hero img {
+            width: 480px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .center {
+            text-align: center;
+            padding: 34px 20px;
+        }
+
+        .center .logo {
+            width: 360px;
+            height: 260px;
+            margin: 0 auto 18px;
+            background: var(--ink);
+            border-radius: 6px;
+            box-shadow: 0 8px 28px rgba(49, 54, 51, 0.12);
+        }
+
+        .center .lead {
+            max-width: 780px;
+            margin: 0 auto;
+            color: var(--ink);
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        footer {
+            margin-top: 42px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(49, 54, 51, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        footer .brand {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        footer .contact {
+            color: var(--ink);
+            opacity: 0.7;
+        }
+
+        .accent {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        @media (max-width:940px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero img {
+                width: 420px;
+            }
+        }
+
+        @media (max-width:600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                flex-direction: column;
+            }
+
+            .center .logo {
+                width: 240px;
+                height: 180px;
+            }
+
+            .wrap {
+                padding: 26px;
+                margin: 22px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <h1>Histoire de la marque — Out of Bounds</h1>
+            <p>Galerie des visuels, affiches et mockups — palette violette / noir</p>
+        </header>
+
+        <main>
+            <section>
+                <h2 class="section-title">Visuels</h2>
+                <div class="grid">
+                    <div class="card">
+                        <img src="visueloutofbounds.png" alt="Visuel 1">
+                        <div class="caption">Logo</div>
+                    </div>
+                    <div class="card">
+                        <img src="images/visuel-2.jpg" alt="Visuel 2"
+                            onerror="this.onerror=null;this.src=placeholderSVG;">
+                        <div class="caption">Logo typographique</div>
+                    </div>
+                    <div class="card">
+                        <img src="images/visuel-3.jpg" alt="Visuel 3"
+                            onerror="this.onerror=null;this.src=placeholderSVG;">
+                        <div class="caption">Logo responsive</div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">Affiches</h2>
+                <div class="grid grid--wide" style="margin-top:8px;">
+                    <div class="card"><img src="Mockup _ Out Of Bounds-1.png" alt="Affiche 1"
+                            onerror="this.onerror=null;this.src=placeholderSVG;">
+                        <div class="caption">Affiche 1</div>
+                    </div>
+                    <div class="card"><img src="Aspects _ Out Of Bounds.png" alt="Affiche 2"
+                            onerror="this.onerror=null;this.src=placeholderSVG;">
+                        <div class="caption">Affiche 2</div>
+                    </div>
+                    <div class="card"><img src="Mockup _ Out Of Bounds.png" alt="Affiche 3"
+                            onerror="this.onerror=null;this.src=placeholderSVG;">
+                        <div class="caption">Affiche 3</div>
+                    </div>
+                    <div class="card"><img src="images/affiche-4.jpg" alt="Affiche 4"
+                            onerror="this.onerror=null;this.src=placeholderSVG;">
+                        <div class="caption">Affiche 4</div>
+                    </div>
+
+                    <div class="card"><img src="images/affiche-5.jpg" alt="Affiche 5"
+                            onerror="this.onerror=null;this.src=placeholderSVG;">
+                        <div class="caption">Affiche 5</div>
+                    </div>
+                    <div class="card"><img src="images/affiche-6.jpg" alt="Affiche 6"
+                            onerror="this.onerror=null;this.src=placeholderSVG;">
+                        <div class="caption">Affiche 6</div>
+                    </div>
+                    <div class="card"><img src="images/affiche-7.jpg" alt="Affiche 7"
+                            onerror="this.onerror=null;this.src=placeholderSVG;">
+                        <div class="caption">Affiche 7</div>
+                    </div>
+                    <div class="card"><img src="images/affiche-8.jpg" alt="Affiche 8"
+                            onerror="this.onerror=null;this.src=placeholderSVG;">
+                        <div class="caption">Affiche 8</div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">Mockups</h2>
+                <div class="hero">
+                    <img src="images/mockup-1.jpg" alt="Mockup 1" onerror="this.onerror=null;this.src=placeholderSVG;">
+                    <img src="images/mockup-2.jpg" alt="Mockup 2" onerror="this.onerror=null;this.src=placeholderSVG;">
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">Logo & Signification</h2>
+                <div class="center">
+                    <div class="logo" aria-hidden="true"></div>
+                    <p class="lead">
+                        Le logo se compose d'un carré sombre associé à un logotype où le mot <span
+                            class="accent">OUT</span> est mis en évidence.
+                        Il symbolise l'idée de sortir du cadre, d'être audacieux et non conventionnel — la base visuelle
+                        de la marque.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">Cible & Aspects</h2>
+                <div class="grid" style="align-items:center;">
+                    <div class="card"><img src="images/cible.jpg" alt="Cible"
+                            onerror="this.onerror=null;this.src=placeholderSVG;">
+                        <div class="caption">Cible</div>
+                    </div>
+                    <div class="card"><img src="images/aspects.jpg" alt="Aspects"
+                            onerror="this.onerror=null;this.src=placeholderSVG;">
+                        <div class="caption">Aspects / signification</div>
+                    </div>
+                    <div class="card"><img src="images/pattern-footer.jpg" alt="Pattern"
+                            onerror="this.onerror=null;this.src=placeholderSVG;">
+                        <div class="caption">Pattern de marque</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="brand">Out of Bounds</div>
+            <div class="contact">DEGOUSEE Goran · MASSET Adam · LANNOYE Yannis</div>
+        </footer>
+    </div>
+
+    <script>
+        const placeholderSVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+            '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">' +
+            '<rect width="100%" height="100%" fill="#fbf9f8"/>' +
+            '<rect x="60" y="60" width="1080" height="680" fill="#313633" rx="6"/>' +
+            '<text x="50%" y="50%" fill="#d85fbf" font-family="Arial, sans-serif" font-size="40" text-anchor="middle" dominant-baseline="middle">Image manquante</text>' +
+            '</svg>'
+        );
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('img').forEach(img => {
+                if (!img.complete || img.naturalWidth === 0) {
+                    img.onerror = null;
+                    img.src = placeholderSVG;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
+// ...existing code...
